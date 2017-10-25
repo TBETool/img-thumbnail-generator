@@ -10,7 +10,7 @@ class ImgThumbnailGenerator
     private $desired_height;
     private $quality;
 
-    function __construct($source, $destination, $desired_width, $desired_height, $quality = 90)
+    function __construct($source, $destination, $desired_width, $desired_height = NULL, $quality = 90)
     {
         $this->source = $source;
         $this->destination = $destination;
@@ -53,6 +53,11 @@ class ImgThumbnailGenerator
         /* get height and width of the image */
         $width = imagesx($source_image);
         $height = imagesy($source_image);
+        
+        /* set desired height if not set by user */
+        if ($this->desired_height == NULL) {
+            $this->desired_height = floor($height * ($this->desired_width / $width));
+        }
 
         /* create a new virtual image */
         $virtual_image = imagecreatetruecolor($width, $height);
