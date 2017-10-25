@@ -1,5 +1,5 @@
 {
-    "name": "tbetool/php-image-resize",
+    "name": "tbetool/img-thumbnail-generator",
     "type": "library",
     "description": "PHP library to resize image to desired height and width or generate thumbnail",
     "keywords": ["php image resize", "image resizer", "image thumbnail", "thumbnail generate", "jpeg resize", "png resize"],
