@@ -104,6 +104,10 @@ class ImgThumbnailGenerator
         }
 
         $parent_directory = dirname($this->destination);
+        
+        if (is_dir($parent_directory)) {
+            return true;
+        }
 
         if (!is_file($parent_directory)) {
             if (mkdir($parent_directory, 0777, true)) {
