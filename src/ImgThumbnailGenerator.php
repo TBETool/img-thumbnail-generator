@@ -31,6 +31,18 @@ class ImgThumbnailGenerator
             die('Source given is not a valid file.');
         }
 
+        /**
+         * check for image extension and set image_type
+         */
+        $allowed_image_types = ['jpg', 'jpeg', 'png'];
+        $ext_explode('.', $this->source);
+        if (in_array(end($ext_explode), $allowed_image_types)) {
+            $this->image_type = strtolower(end($ext_explode));
+        } else {
+            die('Not a valid image supplied. Only supported Image is JPEG or PNG');
+        }
+        
+        /*
         if (exif_imagetype($this->source) == IMAGETYPE_JPEG) {
             // create jpeg image
             $this->image_type = 'jpeg';
@@ -44,6 +56,7 @@ class ImgThumbnailGenerator
         } else {
             die('Not a valid image supplied. Only supported Image is JPEG or PNG');
         }
+        */
 
         /**
          * check and set destination
