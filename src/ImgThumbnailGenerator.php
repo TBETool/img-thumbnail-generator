@@ -35,7 +35,7 @@ class ImgThumbnailGenerator
          * check for image extension and set image_type
          */
         $allowed_image_types = ['jpg', 'jpeg', 'png'];
-        $ext_explode('.', $this->source);
+        $ext_explode = explode('.', $this->source);
         if (in_array(end($ext_explode), $allowed_image_types)) {
             $this->image_type = strtolower(end($ext_explode));
         } else {
