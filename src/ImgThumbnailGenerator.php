@@ -42,6 +42,12 @@ class ImgThumbnailGenerator
             die('Not a valid image supplied. Only supported Image is JPEG or PNG');
         }
         
+        if ($this->image_type === 'jpg' || $this->image_type === 'jpeg') {
+            $source_image = imagecreatefromjpeg($this->source);
+        } elseif ($this->image_type === 'png') {
+            $source_image = imagecreatefrompng($this->source);
+        }
+        
         /*
         if (exif_imagetype($this->source) == IMAGETYPE_JPEG) {
             // create jpeg image
